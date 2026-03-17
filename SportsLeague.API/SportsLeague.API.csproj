@@ -21,4 +21,12 @@
     <ProjectReference Include="..\SportsLeague.DataAccess\SportsLeague.DataAccess.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="DTOs\ResponseDTOs\" />
+    <Folder Include="DTOs\RequestDTOs\" />
+    <Folder Include="Mappings\" />
+    <Folder Include="Middlewares\" />
+  </ItemGroup>
+
 </Project>
