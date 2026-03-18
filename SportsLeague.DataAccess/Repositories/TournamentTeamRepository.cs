@@ -15,8 +15,9 @@ public class TournamentTeamRepository : GenericRepository<TournamentTeam>, ITour
         int tournamentId, int teamId)
     {
         return await _dbSet
-            .FirstOrDefaultAsync(tt =>
-                tt.TournamentId == tournamentId && tt.TeamId == teamId);
+            .Where(tt =>
+                tt.TournamentId == tournamentId && tt.TeamId == teamId)
+            .FirstOrDefaultAsync();
     }
 
     public async Task<IEnumerable<TournamentTeam>> GetByTournamentAsync(
