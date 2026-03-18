@@ -22,9 +22,10 @@ public class TournamentRepository : GenericRepository<Tournament>, ITournamentRe
     public async Task<Tournament?> GetByIdWithTeamsAsync(int id)
     {
         return await _dbSet
+            .Where(t => t.Id == id)
             .Include(t => t.TournamentTeams)
                 .ThenInclude(tt => tt.Team)
-            .FirstOrDefaultAsync(t => t.Id == id);
+            .FirstOrDefaultAsync();
     }
 }
 
