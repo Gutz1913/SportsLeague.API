@@ -13,16 +13,13 @@ public class TournamentController : ControllerBase
 {
     private readonly ITournamentService _tournamentService;
     private readonly IMapper _mapper;
-    private readonly ILogger<TournamentController> _logger;
-
+    
     public TournamentController(
         ITournamentService tournamentService,
-        IMapper mapper,
-        ILogger<TournamentController> logger)
+        IMapper mapper)
     {
         _tournamentService = tournamentService;
-        _mapper = mapper;
-        _logger = logger;
+        _mapper = mapper;        
     }
 
     [HttpGet]
