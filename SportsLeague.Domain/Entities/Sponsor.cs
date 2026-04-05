@@ -10,5 +10,7 @@ public class Sponsor : AuditBase
     public string WebsiteUrl { get; set; } = string.Empty;
     public SponsorCategory Category { get; set; }
 
+
+    //Navigation Properties
     public ICollection<TournamentSponsor> TournamentSponsors { get; set; } = new List<TournamentSponsor>();
 }
