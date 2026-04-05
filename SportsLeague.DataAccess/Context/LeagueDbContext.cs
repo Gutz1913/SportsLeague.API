@@ -173,12 +173,11 @@ public class LeagueDbContext : DbContext
         {
             entity.HasKey(ts => ts.Id);
             entity.Property(ts => ts.ContractAmount)
-                  .HasMaxLength(50)
+                  .HasPrecision(18,2)
                   .IsRequired();
             entity.Property(ts => ts.JoinedAt)
-                  .HasMaxLength(50)
                   .IsRequired();
-            entity.Property(tt => tt.CreatedAt)
+            entity.Property(ts => ts.CreatedAt)
                   .IsRequired();
             entity.Property(tt => tt.UpdatedAt)
                   .IsRequired(false);
