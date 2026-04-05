@@ -11,5 +11,4 @@ public interface ISponsorRepository : IGenericRepository<Sponsor>
     Task<Sponsor> GetByIdWithTournamentsAsync(int id);
     Task<bool> ExistByNameAsync(string name);
     Task<bool> ExistByEmailAsync(string email);
-
 }
