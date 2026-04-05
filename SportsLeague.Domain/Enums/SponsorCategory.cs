@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace SportsLeague.Domain.Enums;
 
-namespace SportsLeague.Domain.Enums;
-
-public enum SponsorCategory 
+public enum SponsorCategory
 {
     Main = 0,
     Gold = 1,
-    Silver = 2,     
+    Silver = 2,
     Bronze = 3,
 }

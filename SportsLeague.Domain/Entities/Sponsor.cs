@@ -1,4 +1,6 @@
-﻿namespace SportsLeague.Domain.Entities;
+﻿using SportsLeague.Domain.Enums;
+
+namespace SportsLeague.Domain.Entities;
 
 public class Sponsor : AuditBase
 {
