@@ -42,10 +42,6 @@ public class MappingProfile : Profile
         CreateMap<TournamentSponsor, TournamentSponsorDTO>()
             .ForMember(dest => dest.TournamentName, opt => opt.MapFrom(src => src.Tournament != null ? src.Tournament.Name : string.Empty));
 
-        // TournamentSponsor (la entidad de unión con payload) -> DTO
-        CreateMap<TournamentSponsor, TournamentSponsorDTO>()
-            .ForMember(dest => dest.TournamentName, opt => opt.MapFrom(src => src.Tournament != null ? src.Tournament.Name : string.Empty));
-
         // Sponsor with sponsorships (composed response)
         CreateMap<Sponsor, SponsorWithSponsorshipsDTO>()
             .ForMember(dest => dest.Sponsorships, opt => opt.MapFrom(src => src.TournamentSponsors));
