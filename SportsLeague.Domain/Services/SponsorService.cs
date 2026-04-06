@@ -86,6 +86,13 @@ public class SponsorService : ISponsorService
             throw new KeyNotFoundException($"No se encontró el sponsor con ID {id}");
         }
 
+        //Evita eliminar si tiene asociaciones con torneos
+        if (await _sponsorRepository.HasAnyTournamentAssociationsAsync(id))
+        {
+            _logger.LogWarning("Sponsor with ID {SponsorId} has tournament associations and cannot be deleted", id);
+            throw new InvalidOperationException("El sponsor tiene sponsorizaciones activas y no puede ser eliminado ");
+        }
+
         _logger.LogInformation("Deleting sponsor with ID: {SponsorId}", id);
         await _sponsorRepository.DeleteAsync(id);
     }
@@ -177,8 +184,6 @@ public class SponsorService : ISponsorService
         await _sponsorRepository.UpdateAsync(sponsor);
     }
 
-
-
     public async Task UpdateCategoryAsync(int id, SponsorCategory newCategory)
     {
         var sponsor = await _sponsorRepository.GetByIdAsync(id);
@@ -194,6 +199,7 @@ public class SponsorService : ISponsorService
 
         sponsor.Category = newCategory;
         _logger.LogInformation("Updating sponsor category for ID {SponsorId} from {OldCategory} to {NewCategory}", id, oldCategory, newCategory);
-        
+
+        await _sponsorRepository.UpdateAsync(sponsor);
     }
 }
