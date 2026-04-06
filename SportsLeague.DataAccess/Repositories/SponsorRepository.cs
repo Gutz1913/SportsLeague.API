@@ -54,4 +54,11 @@ public class SponsorRepository : GenericRepository<Sponsor>, ISponsorRepository
             .Distinct()
             .ToListAsync();
     }
+
+    public async Task<bool> HasAnyTournamentAssociationsAsync(int sponsorId)
+    {
+        return await _context.TournamentSponsors
+    .AsNoTracking()
+    .AnyAsync(ts => ts.SponsorId == sponsorId);
+    }
 }

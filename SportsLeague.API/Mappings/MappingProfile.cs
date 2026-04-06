@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using SportsLeague.API.DTOs.RequestDTOs;
-using SportsLeague.API.DTOs.ResponseDTOs;
+using SportsLeague.API.DTOs.Request;
+using SportsLeague.API.DTOs.Response;
 using SportsLeague.Domain.Entities;
 
 namespace SportsLeague.API.Mappings;
