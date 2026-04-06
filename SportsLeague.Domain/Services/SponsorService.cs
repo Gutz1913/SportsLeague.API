@@ -167,9 +167,7 @@ public class SponsorService : ISponsorService
 
         _logger.LogInformation("Registering sponsor {SponsorId} to tournament {TournamentId}", sponsorId, tournamentId);
         await _sponsorRepository.UpdateAsync(sponsor);
-    }
-
-    
+    }    
 
     public async Task UnregisterSponsorFromTournamentAsync(int tournamentId, int sponsorId)
     {
