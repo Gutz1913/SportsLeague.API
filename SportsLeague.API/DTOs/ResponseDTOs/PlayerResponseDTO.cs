@@ -1,6 +1,6 @@
 ﻿using SportsLeague.Domain.Enums;
 
-namespace SportsLeague.API.DTOs.Response;
+namespace SportsLeague.API.DTOs.ResponseDTOs;
 
 public class PlayerResponseDTO
 {

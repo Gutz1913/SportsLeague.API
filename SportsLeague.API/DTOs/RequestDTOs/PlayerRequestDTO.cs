@@ -1,6 +1,6 @@
 ﻿using SportsLeague.Domain.Enums;
 
-namespace SportsLeague.API.DTOs.Request;
+namespace SportsLeague.API.DTOs.RequestDTOs;
 
 public class PlayerRequestDTO
 {

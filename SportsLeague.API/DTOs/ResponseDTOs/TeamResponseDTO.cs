@@ -1,4 +1,4 @@
-﻿namespace SportsLeague.API.DTOs.Response;
+﻿namespace SportsLeague.API.DTOs.ResponseDTOs;
 
 public class TeamResponseDTO
 {
