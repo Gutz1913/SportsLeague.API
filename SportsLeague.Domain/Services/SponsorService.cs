@@ -9,11 +9,13 @@ namespace SportsLeague.Domain.Services;
 public class SponsorService : ISponsorService
 {
     private readonly ISponsorRepository _sponsorRepository;
+    private readonly ITournamentRepository _tournamentRepository;
     private readonly ILogger<SponsorService> _logger;
 
-    public SponsorService(ISponsorRepository sponsorRepository, ILogger<SponsorService> logger)
+    public SponsorService(ISponsorRepository sponsorRepository, ITournamentRepository tournamentRepository, ILogger<SponsorService> logger)
     {
         _sponsorRepository = sponsorRepository;
+        _tournamentRepository = tournamentRepository;
         _logger = logger;
     }
 
@@ -134,6 +136,12 @@ public class SponsorService : ISponsorService
 
     public async Task RegisterSponsorToTournamentAsync(int tournamentId, int sponsorId, decimal contractAmount, DateTime? joinedAt = null)
     {
+        //Valida existencia del torneo
+        if (!await _tournamentRepository.ExistsAsync(tournamentId))
+        {
+            _logger.LogWarning("Tournament with ID {TournamentId} not found for sponsor registration", tournamentId);
+            throw new KeyNotFoundException($"No se encontró el torneo con ID {tournamentId}");
+        }
         //Obtiene sponsor con sus relaciones
         var sponsor = await _sponsorRepository.GetByIdWithTournamentsAsync(sponsorId);
         if (sponsor == null)
