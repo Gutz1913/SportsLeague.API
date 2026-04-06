@@ -203,6 +203,7 @@ public class SponsorService : ISponsorService
         if (oldCategory == newCategory)
         {
             _logger.LogInformation("No se actualiza la categoría del sponsor {SponsorId} porque ya es {Category}", id, newCategory);
+            return;
         }
 
         sponsor.Category = newCategory;
