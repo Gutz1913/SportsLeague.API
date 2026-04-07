@@ -117,5 +117,15 @@ public class SponsorController : ControllerBase
         catch (InvalidOperationException ex) { return Conflict(new { message = ex.Message }); }
     }
 
-
+    [HttpDelete("{id}/tournaments/{tid}")]
+    public async Task<ActionResult> UnregisterSponsorFromTournamentAsync(int id, int tid)
+    {
+        try
+        {
+            await _sponsorService.UnregisterSponsorFromTournamentAsync(id, tid);
+            return NoContent();
+        }
+        catch (KeyNotFoundException ex) { return NotFound(new { message = ex.Message }); }
+        catch (InvalidOperationException ex) { return Conflict(new { message = ex.Message });  }
+    }
 }
