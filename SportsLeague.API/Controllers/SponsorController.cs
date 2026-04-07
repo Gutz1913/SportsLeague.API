@@ -111,7 +111,7 @@ public class SponsorController : ControllerBase
         {
             var tournamentSponsor = _mapper.Map<TournamentSponsor>(dto);
             await _sponsorService.RegisterSponsorToTournamentAsync(id, dto.TournamentId, dto.ContractAmount);
-            return Ok(new { message = "Sponsor inscrito exitosamente al torneo {TournamentId}" });
+            return Ok(new { message = "Sponsor inscrito exitosamente" });
         }
         catch (KeyNotFoundException ex) { return NotFound(new { message = ex.Message }); }
         catch (InvalidOperationException ex) { return Conflict(new { message = ex.Message }); }
