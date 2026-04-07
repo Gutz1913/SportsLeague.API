@@ -104,7 +104,7 @@ public class SponsorController : ControllerBase
         catch (InvalidOperationException ex) { return Conflict(new { message = ex.Message }); }
     }
 
-    [HttpGet("{id}/sponsors")]
+    [HttpGet("{id}/tournaments")]
     public async Task<ActionResult<IEnumerable<SponsorResponseDTO>>> GetSponsors(int id)
     {
         try
