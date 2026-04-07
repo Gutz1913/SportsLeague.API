@@ -136,7 +136,7 @@ public class SponsorService : ISponsorService
         return await _tournamentSponsorRepository.GetBySponsorIdAsync(sponsorId);
     }
 
-    public async Task RegisterSponsorToTournamentAsync(int tournamentId, int sponsorId, decimal contractAmount, DateTime? joinedAt = null)
+    public async Task RegisterSponsorToTournamentAsync(int sponsorId, int tournamentId, decimal contractAmount, DateTime? joinedAt = null)
     {
         //Valida existencia del torneo
         if (!await _tournamentRepository.ExistsAsync(tournamentId))
