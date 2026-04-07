@@ -128,10 +128,10 @@ public class SponsorService : ISponsorService
         return sponsor;     
     }
 
-    public async Task<IEnumerable<Sponsor>> GetSponsorsByTournamentAsync(int tournamentId)
+    public async Task<IEnumerable<Sponsor>> GetTournamentsBySponsorAsync(int sponsorId)
     {
-        _logger.LogInformation("Retrieving sponsors for tournament {TournamentId}", tournamentId);
-        return await _sponsorRepository.GetByTournamentAsync(tournamentId);
+        _logger.LogInformation("Retrieving tournaments for sponsor {SponsorId}", sponsorId);
+        return await _sponsorRepository.GetByTournamentIdAsync(sponsorId);
     }
 
     public async Task RegisterSponsorToTournamentAsync(int tournamentId, int sponsorId, decimal contractAmount, DateTime? joinedAt = null)

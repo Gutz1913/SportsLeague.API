@@ -7,7 +7,7 @@ public interface ISponsorRepository : IGenericRepository<Sponsor>
 {
     Task<Sponsor?> GetByNameAsync(string name);
     Task<IEnumerable<Sponsor>> GetByCategoryAsync(SponsorCategory category);
-    Task<IEnumerable<Sponsor>> GetByTournamentAsync(int tournamentId);
+    Task<IEnumerable<Sponsor>> GetByTournamentIdAsync(int tournamentId);
     Task<Sponsor?> GetByIdWithTournamentsAsync(int id);
     Task<bool> HasAnyTournamentAssociationsAsync(int sponsorId);
     Task<bool> ExistByNameAsync(string name);

@@ -37,15 +37,15 @@ public class SponsorRepository : GenericRepository<Sponsor>, ISponsorRepository
 
     public async Task<bool> ExistByNameAsync(string name)
     {
-        return await _dbSet.AnyAsync(s => s.Name == name);
+        return await _dbSet.AnyAsync(s => s.Name.ToLower() == name.ToLower());
     }
 
     public async Task<bool> ExistByEmailAsync(string email)
     {
-        return await _dbSet.AnyAsync(s => s.ContactEmail == email);
+        return await _dbSet.AnyAsync(s => s.ContactEmail.ToLower() == email.ToLower());
     }
 
-    public async Task<IEnumerable<Sponsor>> GetByTournamentAsync(int tournamentId)
+    public async Task<IEnumerable<Sponsor>> GetByTournamentIdAsync(int tournamentId)
     {
         // Consulta la tabla de unión y devuelve sponsors distintos del torneo
         return await _context.TournamentSponsors
@@ -58,7 +58,7 @@ public class SponsorRepository : GenericRepository<Sponsor>, ISponsorRepository
     public async Task<bool> HasAnyTournamentAssociationsAsync(int sponsorId)
     {
         return await _context.TournamentSponsors
-    .AsNoTracking()
-    .AnyAsync(ts => ts.SponsorId == sponsorId);
+            .AsNoTracking()
+            .AnyAsync(ts => ts.SponsorId == sponsorId);
     }
 }
