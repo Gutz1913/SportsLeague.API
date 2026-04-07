@@ -150,6 +150,12 @@ public class SponsorService : ISponsorService
             throw new KeyNotFoundException($"No se encontró el sponsor con ID {sponsorId}");
         }
 
+        if (contractAmount <= 0)
+        {
+            _logger.LogWarning("the contract amount must be greater than zero");
+            throw new InvalidOperationException("El monto del contrato debe ser mayor a 0");
+        }
+
         //Evita duplicados
         if (sponsor.TournamentSponsors.Any(ts => ts.TournamentId == tournamentId))
         {
