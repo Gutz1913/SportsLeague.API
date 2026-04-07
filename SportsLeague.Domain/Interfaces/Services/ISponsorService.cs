@@ -16,4 +16,5 @@ public interface ISponsorService
     Task RegisterSponsorToTournamentAsync(int tournamentId, int sponsorId, decimal contractAmount, DateTime? joinedAt = null);
     Task UnregisterSponsorFromTournamentAsync(int tournamentId, int sponsorId);
     Task<IEnumerable<Sponsor>> GetSponsorsByTournamentAsync(int tournamentId);
+
 }
