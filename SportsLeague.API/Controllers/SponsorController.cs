@@ -4,7 +4,6 @@ using SportsLeague.API.DTOs.Request;
 using SportsLeague.API.DTOs.Response;
 using SportsLeague.Domain.Entities;
 using SportsLeague.Domain.Interfaces.Services;
-using SportsLeague.Domain.Services;
 
 namespace SportsLeague.API.Controllers;
 
@@ -17,7 +16,7 @@ public class SponsorController : ControllerBase
     private readonly IMapper _mapper;
 
     public SponsorController(
-        ISponsorService sponsorService, 
+        ISponsorService sponsorService,
         IMapper mapper)
     {
         _sponsorService = sponsorService;
@@ -27,7 +26,7 @@ public class SponsorController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<SponsorResponseDTO>>> GetAll()
     {
-        var sponsors = await _sponsorService.GetAllAsync();       
+        var sponsors = await _sponsorService.GetAllAsync();
         return Ok(_mapper.Map<IEnumerable<SponsorResponseDTO>>(sponsors));
     }
 

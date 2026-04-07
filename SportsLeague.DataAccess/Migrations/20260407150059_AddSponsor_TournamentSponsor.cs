@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SportsLeague.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class AddSponsor_TournamentSponsorEntities : Migration
+    public partial class AddSponsor_TournamentSponsor : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

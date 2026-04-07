@@ -12,8 +12,8 @@ using SportsLeague.DataAccess.Context;
 namespace SportsLeague.DataAccess.Migrations
 {
     [DbContext(typeof(LeagueDbContext))]
-    [Migration("20260405155752_AddSponsor_TournamentSponsorEntities")]
-    partial class AddSponsor_TournamentSponsorEntities
+    [Migration("20260407150059_AddSponsor_TournamentSponsor")]
+    partial class AddSponsor_TournamentSponsor
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
