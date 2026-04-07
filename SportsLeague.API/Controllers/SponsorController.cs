@@ -98,7 +98,7 @@ public class SponsorController : ControllerBase
     {
         try
         {
-            await _sponsorService.RegisterSponsorToTournamentAsync(id, dto.SponsorId, dto.ContractAmount);
+            await _sponsorService.RegisterSponsorToTournamentAsync(id, dto.TournamentId, dto.ContractAmount);
             return Ok(new { message = "Sponsor inscrito exitosamente" });
         }
         catch (KeyNotFoundException ex) { return NotFound(new { message = ex.Message }); }
