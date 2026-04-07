@@ -15,6 +15,6 @@ public interface ISponsorService
     Task UpdateCategoryAsync(int id, SponsorCategory newCategory);
     Task RegisterSponsorToTournamentAsync(int tournamentId, int sponsorId, decimal contractAmount, DateTime? joinedAt = null);
     Task UnregisterSponsorFromTournamentAsync(int tournamentId, int sponsorId);
-    Task<IEnumerable<Sponsor>> GetTournamentsBySponsorAsync(int sponsorId);
+    Task<IEnumerable<TournamentSponsor>> GetTournamentsBySponsorAsync(int sponsorId);
 
 }

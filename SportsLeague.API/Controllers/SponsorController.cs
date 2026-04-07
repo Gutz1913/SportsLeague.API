@@ -101,6 +101,7 @@ public class SponsorController : ControllerBase
             return Ok(_mapper.Map<IEnumerable<TournamentSponsorResponseDTO>>(tournaments));
         }
         catch (KeyNotFoundException ex) { return NotFound(new { message = ex.Message }); }
+        catch (InvalidOperationException ex) { return Conflict(new { message = ex.Message }); }
     }
 
     [HttpPost("{id}/tournaments")]

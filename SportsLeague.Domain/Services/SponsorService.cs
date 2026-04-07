@@ -9,12 +9,14 @@ namespace SportsLeague.Domain.Services;
 public class SponsorService : ISponsorService
 {
     private readonly ISponsorRepository _sponsorRepository;
+    private readonly ITournamentSponsorRepository _tournamentSponsorRepository;
     private readonly ITournamentRepository _tournamentRepository;
     private readonly ILogger<SponsorService> _logger;
 
-    public SponsorService(ISponsorRepository sponsorRepository, ITournamentRepository tournamentRepository, ILogger<SponsorService> logger)
+    public SponsorService(ISponsorRepository sponsorRepository, ITournamentSponsorRepository tournamentSponsorRepository, ITournamentRepository tournamentRepository, ILogger<SponsorService> logger)
     {
         _sponsorRepository = sponsorRepository;
+        _tournamentSponsorRepository = tournamentSponsorRepository;
         _tournamentRepository = tournamentRepository;
         _logger = logger;
     }
@@ -128,10 +130,10 @@ public class SponsorService : ISponsorService
         return sponsor;     
     }
 
-    public async Task<IEnumerable<Sponsor>> GetTournamentsBySponsorAsync(int sponsorId)
+    public async Task<IEnumerable<TournamentSponsor>> GetTournamentsBySponsorAsync(int sponsorId)
     {
         _logger.LogInformation("Retrieving tournaments for sponsor {SponsorId}", sponsorId);
-        return await _sponsorRepository.GetByTournamentIdAsync(sponsorId);
+        return await _tournamentSponsorRepository.GetBySponsorIdAsync(sponsorId);
     }
 
     public async Task RegisterSponsorToTournamentAsync(int tournamentId, int sponsorId, decimal contractAmount, DateTime? joinedAt = null)
