@@ -93,7 +93,7 @@ public class SponsorController : ControllerBase
     }
 
     [HttpPost("{id}/tournaments")]
-    public async Task<ActionResult> RegisterSponsorToTournamentAsync(int id, RegisterSponsorDTO dto)
+    public async Task<ActionResult> RegisterSponsorToTournamentAsync(int id, TournamentSponsorRequestDTO dto)
     {
         try
         {
@@ -105,12 +105,12 @@ public class SponsorController : ControllerBase
     }
 
     [HttpGet("{id}/tournaments")]
-    public async Task<ActionResult<IEnumerable<SponsorResponseDTO>>> GetSponsors(int id)
+    public async Task<ActionResult<IEnumerable<TournamentSponsorResponseDTO>>> GetSponsors(int id)
     {
         try
         {
             var sponsors = await _sponsorService.GetSponsorsByTournamentAsync(id);
-            return Ok(_mapper.Map<IEnumerable<SponsorResponseDTO>>(sponsors));
+            return Ok(_mapper.Map<IEnumerable<TournamentSponsorResponseDTO>>(sponsors));
         }
         catch (KeyNotFoundException ex) { return NotFound(new { message = ex.Message }); }
     }
