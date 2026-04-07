@@ -168,8 +168,8 @@ public class SponsorService : ISponsorService
 
         sponsor.TournamentSponsors.Add(new TournamentSponsor
         {
-            TournamentId = tournamentId,
             SponsorId = sponsorId,
+            TournamentId = tournamentId,            
             ContractAmount = contractAmount,
             JoinedAt = joinedAt ?? DateTime.UtcNow
         });
