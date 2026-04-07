@@ -2,6 +2,6 @@
 
 public class SponsorWithSponsorshipsDTO : SponsorResponseDTO
 {
-    public IEnumerable<TournamentSponsorDTO> Sponsorships { get; set; } = new List<TournamentSponsorDTO>();
+    public IEnumerable<TournamentSponsorResponseDTO> Sponsorships { get; set; } = new List<TournamentSponsorResponseDTO>();
 }
 
