@@ -93,7 +93,7 @@ public class SponsorController : ControllerBase
         catch (InvalidOperationException ex) { return Conflict(new { message = ex.Message }); }
     }
 
-    [HttpPost("{id}/tournaments")]
+    [HttpPost("{id}/sponsors")]
     public async Task<ActionResult> RegisterSponsor(int id, RegisterSponsorDTO dto)
     {
         try
