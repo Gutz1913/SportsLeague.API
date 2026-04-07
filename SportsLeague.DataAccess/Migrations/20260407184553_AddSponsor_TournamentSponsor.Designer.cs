@@ -12,7 +12,7 @@ using SportsLeague.DataAccess.Context;
 namespace SportsLeague.DataAccess.Migrations
 {
     [DbContext(typeof(LeagueDbContext))]
-    [Migration("20260407150059_AddSponsor_TournamentSponsor")]
+    [Migration("20260407184553_AddSponsor_TournamentSponsor")]
     partial class AddSponsor_TournamentSponsor
     {
         /// <inheritdoc />
