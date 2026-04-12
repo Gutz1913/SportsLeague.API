@@ -62,7 +62,7 @@ public class SponsorService : ISponsorService
 
         //Validar nombre único(si cambió)
 
-        if (existingSponsor.Name != sponsor.Name)
+        if (existingSponsor.Name == sponsor.Name)
         {
             var sponsorWithSameName = await _sponsorRepository.GetByNameAsync(sponsor.Name);
             if (sponsorWithSameName != null)
