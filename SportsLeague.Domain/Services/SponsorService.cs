@@ -187,7 +187,7 @@ public class SponsorService : ISponsorService
             throw new KeyNotFoundException($"No se encontró el sponsor con ID {sponsorId}");
         }
 
-        var ts = sponsor.TournamentSponsors.FirstOrDefault(x => x.TournamentId == tournamentId && x.SponsorId == sponsorId);
+        var ts = sponsor.TournamentSponsors.FirstOrDefault(x => x.SponsorId == sponsorId && x.TournamentId == tournamentId);
         if (ts == null)
         {
             _logger.LogWarning("Sponsorship not found for Sponsor {SponsorId} and Tournament {TournamentId}", sponsorId, tournamentId);
