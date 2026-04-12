@@ -178,7 +178,7 @@ public class SponsorService : ISponsorService
         await _sponsorRepository.UpdateAsync(sponsor);
     }    
 
-    public async Task UnregisterSponsorFromTournamentAsync(int tournamentId, int sponsorId)
+    public async Task UnregisterSponsorFromTournamentAsync(int sponsorId, int tournamentId)
     {
         var sponsor = await _sponsorRepository.GetByIdWithTournamentsAsync(sponsorId);
         if (sponsor == null)
