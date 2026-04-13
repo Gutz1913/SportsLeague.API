@@ -42,15 +42,15 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.TournamentName, opt => opt.MapFrom(src => src.Tournament.Name))
             .ForMember(dest => dest.SponsorName, opt => opt.MapFrom(src => src.Sponsor.Name));
 
-        // Sponsor with sponsorships (composed response)
+        // Sponsorship mapping
         CreateMap<Sponsor, SponsorWithSponsorshipsDTO>()
             .ForMember(dest => dest.Sponsorships, opt => opt.MapFrom(src => src.TournamentSponsors));
 
-        // RegisterSponsorDTO -> TournamentSponsor (uso en endpoints: necesitas setear TournamentId en el controlador o servicio)
+        // Register sponsor mapping
         CreateMap<RegisterSponsorDTO, TournamentSponsor>()
             .ForMember(dest => dest.JoinedAt, opt => opt.MapFrom(src => src.JoinedAt ?? DateTime.UtcNow));
 
-        // Optional: Update category DTO -> Sponsor (if you accept it as payload)
+        //Update category sponsor mapping
         CreateMap<UpdateSponsorCategoryDTO, Sponsor>()
             .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category));
     }
