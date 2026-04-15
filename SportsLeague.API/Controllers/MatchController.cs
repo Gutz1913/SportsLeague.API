@@ -13,7 +13,6 @@ public class MatchController : ControllerBase
 {
     private readonly IMatchService _matchService;
     private readonly IMapper _mapper;
-    private readonly ILogger<MatchController> _logger;
 
     public MatchController(
         IMatchService matchService,
@@ -22,7 +21,6 @@ public class MatchController : ControllerBase
     {
         _matchService = matchService;
         _mapper = mapper;
-        _logger = logger;
     }
 
     [HttpGet("tournament/{tournamentId}")]
