@@ -16,8 +16,7 @@ public class MatchController : ControllerBase
 
     public MatchController(
         IMatchService matchService,
-        IMapper mapper,
-        ILogger<MatchController> logger)
+        IMapper mapper)
     {
         _matchService = matchService;
         _mapper = mapper;
