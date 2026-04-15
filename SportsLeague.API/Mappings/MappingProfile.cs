@@ -53,6 +53,19 @@ public class MappingProfile : Profile
         //Update category sponsor mapping
         CreateMap<UpdateSponsorCategoryDTO, Sponsor>()
             .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category));
+
+        //Match mapping
+        CreateMap<MatchRequestDTO, Match>();
+        CreateMap<Match, MatchResponseDTO>()
+            .ForMember(dest => dest.TournamentName,
+                opt => opt.MapFrom(src => src.Tournament.Name))
+            .ForMember(dest => dest.HomeTeamName,
+                opt => opt.MapFrom(src => src.HomeTeam.Name))
+            .ForMember(dest => dest.AwayTeamName,
+                opt => opt.MapFrom(src => src.AwayTeam.Name))
+            .ForMember(dest => dest.RefereeFullName,
+                opt => opt.MapFrom(src =>
+                    src.Referee.FirstName + " " + src.Referee.LastName));
     }
 }
 
