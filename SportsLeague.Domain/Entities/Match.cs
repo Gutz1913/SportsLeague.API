@@ -2,7 +2,7 @@
 
 namespace SportsLeague.Domain.Entities;
 
-public class Match
+public class Match : AuditBase
 {
     public int TournamentId { get; set; }
     public int HomeTeamId { get; set; }
