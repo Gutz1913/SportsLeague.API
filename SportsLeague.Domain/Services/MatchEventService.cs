@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using SportsLeague.Domain.Entities;
 using SportsLeague.Domain.Enums;
+using SportsLeague.Domain.Helpers;
 using SportsLeague.Domain.Interfaces.Repositories;
 using SportsLeague.Domain.Interfaces.Services;
 
@@ -13,6 +14,7 @@ public class MatchEventService : IMatchEventService
     private readonly IGoalRepository _goalRepository;
     private readonly ICardRepository _cardRepository;
     private readonly IPlayerRepository _playerRepository;
+    private readonly MatchValidationHelper _matchValidationHelper;
     private readonly ILogger<MatchEventService> _logger;
 
     public MatchEventService(
@@ -21,6 +23,7 @@ public class MatchEventService : IMatchEventService
         IGoalRepository goalRepository,
         ICardRepository cardRepository,
         IPlayerRepository playerRepository,
+        MatchValidationHelper matchValidationHelper,
         ILogger<MatchEventService> logger)
     {
         _matchRepository = matchRepository;
@@ -28,6 +31,7 @@ public class MatchEventService : IMatchEventService
         _goalRepository = goalRepository;
         _cardRepository = cardRepository;
         _playerRepository = playerRepository;
+        _matchValidationHelper = matchValidationHelper;
         _logger = logger;
     }
 
@@ -69,9 +73,9 @@ public class MatchEventService : IMatchEventService
 
     public async Task<Goal> RegisterGoalAsync(int matchId, Goal goal)
     {
-        var match = await ValidateMatchForEventAsync(matchId);
-        await ValidatePlayerInMatchAsync(goal.PlayerId, match);
-        ValidateMinute(goal.Minute);
+        var match = await _matchValidationHelper.ValidateMatchForEventAsync(matchId);
+        await _matchValidationHelper.ValidatePlayerInMatchAsync(goal.PlayerId, match);
+        MatchValidationHelper.ValidateMinute(goal.Minute);
 
         goal.MatchId = matchId;
 
@@ -101,9 +105,9 @@ public class MatchEventService : IMatchEventService
 
     public async Task<Card> RegisterCardAsync(int matchId, Card card)
     {
-        var match = await ValidateMatchForEventAsync(matchId);
-        await ValidatePlayerInMatchAsync(card.PlayerId, match);
-        ValidateMinute(card.Minute);
+        var match = await _matchValidationHelper.ValidateMatchForEventAsync(matchId);
+        await _matchValidationHelper.ValidatePlayerInMatchAsync(card.PlayerId, match);
+        MatchValidationHelper.ValidateMinute(card.Minute);
 
         card.MatchId = matchId;
 
