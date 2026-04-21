@@ -4,19 +4,21 @@ namespace SportsLeague.Domain.Interfaces.Services
 {
     public interface IMatchEventService
     {
-        // MatchResult
+        #region Match Result Methods
         Task<MatchResult> RegisterResultAsync(int matchId, MatchResult result);
         Task<MatchResult?> GetResultByMatchAsync(int matchId);
+        #endregion
 
-        // Goals
+        #region Goal Methods
         Task<Goal> RegisterGoalAsync(int matchId, Goal goal);
         Task<IEnumerable<Goal>> GetGoalsByMatchAsync(int matchId);
         Task DeleteGoalAsync(int goalId);
+        #endregion
 
-        // Cards
+        #region Card Methods
         Task<Card> RegisterCardAsync(int matchId, Card card);
         Task<IEnumerable<Card>> GetCardsByMatchAsync(int matchId);
         Task DeleteCardAsync(int cardId);
+        #endregion
     }
-
 }
