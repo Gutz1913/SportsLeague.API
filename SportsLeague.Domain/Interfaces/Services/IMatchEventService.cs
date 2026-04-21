@@ -20,5 +20,10 @@ namespace SportsLeague.Domain.Interfaces.Services
         Task<IEnumerable<Card>> GetCardsByMatchAsync(int matchId);
         Task DeleteCardAsync(int cardId);
         #endregion
+
+        //Con esta unificación de servicios, se puede manejar toda la lógica relacionada con los eventos de un partido
+        //(resultados, goles, tarjetas) desde un solo punto, lo que facilita el mantenimiento y la coherencia en la aplicación
+        //Ademas me evita duplicar codigo en servicios separados para cada tipo de evento, ya que muchos de los procesos
+        //(como validación, manejo de errores, etc.) pueden ser compartidos entre ellos.
     }
 }
