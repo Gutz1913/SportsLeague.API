@@ -2,7 +2,7 @@
 
 public class MatchResult : AuditBase
 {
-    public int MatchId { get; set; }
+    public int MatchId { get; set; } //FK and UK
     public int HomeGoals { get; set; }
     public int AwayGoals { get; set; }
     public string? Observations { get; set; }
