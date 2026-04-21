@@ -10,6 +10,8 @@ public class MatchResultRepository : GenericRepository<MatchResult>, IMatchResul
 
     public async Task<MatchResult?> GetByMatchIdAsync(int matchId)
     {
-        return await _dbSet.FirstOrDefaultAsync(mr => mr.MatchId == matchId);
+        return await _dbSet
+            .Where(mr => mr.MatchId == matchId)
+            .FirstOrDefaultAsync();
     }
 }
