@@ -13,7 +13,8 @@ public class GoalRepository : GenericRepository<Goal>, IGoalRepository
     {
         return await _dbSet
             .Where(g => g.MatchId == matchId)
-            .OrderBy(g => g.Minute)
+            .OrderBy(g => g.Minute) //De forma ascendente
+                                    //OrderByDescending(g => g.Minute) //De forma descendente
             .ToListAsync();
     }
 
@@ -22,6 +23,9 @@ public class GoalRepository : GenericRepository<Goal>, IGoalRepository
         return await _dbSet
             .Where(g => g.MatchId == matchId)
             .Include(g => g.Player)
+            //.ThenInclude(p => p.Team) // Incluye el equipo del jugador
+            //.ThenInclude(t => t.TournamentTeams) // Incluye el país del equipo
+            //.ThenInclude(tt => tt.Tournament) // Incluye el torneo del país
             .OrderBy(g => g.Minute)
             .ToListAsync();
     }
