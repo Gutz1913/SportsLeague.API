@@ -35,6 +35,7 @@ public class MatchEventService : IMatchEventService
         _logger = logger;
     }
 
+    // ═══ MatchResult ═══
     public async Task<MatchResult> RegisterResultAsync(int matchId, MatchResult result)
     {
         var match = await _matchRepository.GetByIdAsync(matchId);
