@@ -15,8 +15,8 @@ public static class DataSeeder
         // ═══ 1. EQUIPOS (Liga BetPlay 2026) ═══
         var teams = new List<Team>
         {
+            new() { Name="Deportivo Independiente Medellín", City="Medellín", Stadium="Atanasio Girardot" },
             new() { Name="Atlético Nacional", City="Medellín", Stadium="Atanasio Girardot" },
-            new() { Name="Independiente Medellín", City="Medellín", Stadium="Atanasio Girardot" },
             new() { Name="América de Cali", City="Cali", Stadium="Pascual Guerrero" },
             new() { Name="Deportivo Cali", City="Cali", Stadium="Deportivo Cali" },
             new() { Name="Junior FC", City="Barranquilla", Stadium="Metropolitano" },
