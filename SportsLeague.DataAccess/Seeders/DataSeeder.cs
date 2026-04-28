@@ -43,19 +43,19 @@ public static class DataSeeder
         // ═══ 2. JUGADORES (4 por equipo = 80 total) ═══
         var playersData = new (string First, string Last, PlayerPosition Pos, int Number)[][]
         {
-            // 1. Atlético Nacional
-            new[] {
-                ("David", "Ospina", PlayerPosition.Goalkeeper, 1),
-                ("William", "Tesillo", PlayerPosition.Defender, 3),
-                ("Edwin", "Cardona", PlayerPosition.Midfielder, 10),
-                ("Alfredo", "Morelos", PlayerPosition.Forward, 9),
-            },
-            // 2. Independiente Medellín
+            // 1. Independiente Medellín
             new[] {
                 ("Salvador", "Ichazo", PlayerPosition.Goalkeeper, 1),
                 ("Andrés", "Cadavid", PlayerPosition.Defender, 4),
                 ("Adrián", "Arregui", PlayerPosition.Midfielder, 5),
                 ("Luciano", "Pons", PlayerPosition.Forward, 9),
+            },
+            // 2. Atlético Nacional
+            new[] {
+                ("David", "Ospina", PlayerPosition.Goalkeeper, 1),
+                ("William", "Tesillo", PlayerPosition.Defender, 3),
+                ("Edwin", "Cardona", PlayerPosition.Midfielder, 10),
+                ("Alfredo", "Morelos", PlayerPosition.Forward, 9),
             },
             // 3. América de Cali
             new[] {
