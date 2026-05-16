@@ -52,5 +52,29 @@ public class MatchRepository : GenericRepository<Match>, IMatchRepository
             .ThenBy(m => m.MatchDate)
             .ToListAsync();
     }
+
+    public async Task<Match?> GetWithTeamsAndStatusAsync(int matchId)
+    {
+        return await _dbSet
+            .Where(m => m.Id == matchId)
+            .Include(m => m.HomeTeam)
+            .Include(m => m.AwayTeam)
+            .FirstOrDefaultAsync();
+    }
+
+    public async Task<IEnumerable<Player>> GetPlayersByMatchIdAsync(int matchId)
+    {
+        return await _context.Players
+            .AsNoTracking()
+            .Where(p => p.TeamId == _dbSet
+                .Where(m => m.Id == matchId)
+                .Select(matchId => matchId.HomeTeamId)
+                .FirstOrDefault() || 
+                p.TeamId == _dbSet
+                .Where(m => m.Id == matchId)
+                .Select(m => m.AwayTeamId)
+                .FirstOrDefault())
+            .ToListAsync();
+    }
 }
 
