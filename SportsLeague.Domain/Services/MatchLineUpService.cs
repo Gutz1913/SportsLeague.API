@@ -47,7 +47,13 @@ public class MatchLineUpService : IMatchLineUpService
         return await _matchLineUpRepository.GetByMatchIdAsync(matchId);
     }
 
-    public async Task<MatchLineUp> CreateAsync(MatchLineUp matchLineUp, int matchId, int playerId, bool isStarter, string position)
+    public async Task<IEnumerable<MatchLineUp>> GetByMatchAndTeamAsync(int matchId, int teamId)
+    {
+        _logger.LogInformation("Retrieving line ups for match {MatchId} and team {TeamId}", matchId, teamId);
+        return await _matchLineUpRepository.GetByMatchAndTeamAsync(matchId, teamId);
+    }
+
+    public async Task<MatchLineUp> CreateAsync(int matchId, int playerId, bool isStarter, string position)
     {
         // V1: El partido debe existir
         var match = await _matchRepository.GetWithTeamsAndStatusAsync(matchId);
@@ -97,11 +103,14 @@ public class MatchLineUpService : IMatchLineUpService
             throw new InvalidOperationException("Solo se pueden registrar alineaciones en partidos Scheduled");
         }
 
-        // Si todas las validaciones pasan, asignar datos y crear
-        matchLineUp.MatchId = matchId;
-        matchLineUp.PlayerId = playerId;
-        matchLineUp.IsStarter = isStarter;
-        matchLineUp.Position = position;
+        // Si todas las validaciones pasan, crear MatchLineUp
+        var matchLineUp = new MatchLineUp
+        {
+            MatchId = matchId,
+            PlayerId = playerId,
+            IsStarter = isStarter,
+            Position = position
+        };
 
         _logger.LogInformation("Creating match line up for match {MatchId} and player {PlayerId}", matchId, playerId);
         return await _matchLineUpRepository.CreateAsync(matchLineUp);

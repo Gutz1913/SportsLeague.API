@@ -29,8 +29,10 @@ public class MatchLineUpRepository : GenericRepository<MatchLineUp>, IMatchLineU
     {
         return await _dbSet.AsNoTracking()
             .Where(ml => ml.MatchId == matchId)
-            .Include(ml => ml.Match)
             .Include(ml => ml.Player)
+            .ThenInclude(p => p.Team)
+            .OrderBy(ml => ml.IsStarter ? 0 : 1)
+            .ThenBy(ml => ml.Position)
             .ToListAsync();
     }
 
