@@ -44,8 +44,7 @@ public static class DataSeeder
         var playersData = new (string First, string Last, PlayerPosition Pos, int Number)[][]
         {
             // 1. Independiente Medellín
-            new[] {
-                ("Brayan", "Lopez", PlayerPosition.Goalkeeper, 12),
+            new[] {                
                 ("David", "Gonzalez", PlayerPosition.Goalkeeper, 1),
                 ("Ricardo", "Calle", PlayerPosition.Defender, 2),
                 ("Felipe", "Baloy", PlayerPosition.Defender, 3),
@@ -57,6 +56,7 @@ public static class DataSeeder
                 ("Mao", "Molina", PlayerPosition.Midfielder, 9),
                 ("Jorge", "Serna", PlayerPosition.Forward, 10),
                 ("Tressor", "Moreno", PlayerPosition.Forward, 11),
+                ("Brayan", "Lopez", PlayerPosition.Goalkeeper, 12),
                 ("Andrés", "Cadavid", PlayerPosition.Defender, 13),
                 ("Adrián", "Arregui", PlayerPosition.Midfielder, 14),
                 ("Luciano", "Pons", PlayerPosition.Forward, 15),
