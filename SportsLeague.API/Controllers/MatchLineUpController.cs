@@ -37,7 +37,14 @@ public class MatchLineUpController : ControllerBase
         if (lineUp == null || lineUp.MatchId != matchId)
             return NotFound(new { message = $"Alineación con ID {id} no encontrada" });
 
-        var lineUpDto = _mapper.Map<MatchLineUpResponseDTO>(lineUp);
+        // Recargar con las relaciones incluidas para el mapeo
+        var lineUpWithDetails = await _matchLineUpService.GetByMatchIdAsync(matchId);
+        var lineUpWithRelations = lineUpWithDetails.FirstOrDefault(l => l.Id == id);
+
+        if (lineUpWithRelations == null)
+            return NotFound(new { message = $"Alineación con ID {id} no encontrada" });
+
+        var lineUpDto = _mapper.Map<MatchLineUpResponseDTO>(lineUpWithRelations);
         return Ok(lineUpDto);
     }
 
