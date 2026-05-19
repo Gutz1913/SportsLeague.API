@@ -77,7 +77,7 @@ public class MatchLineUpController : ControllerBase
         {
             var lineUp = await _matchLineUpService.GetByIdAsync(id);
             if (lineUp == null || lineUp.MatchId != matchId)
-                return NotFound(new { message = $"Jugador con ID {id} no encontrado" });
+                return NotFound(new { message = $"Alineación con ID {id} no encontrada" });
 
             await _matchLineUpService.DeleteAsync(id);
             return NoContent();
