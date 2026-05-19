@@ -79,7 +79,7 @@ public class MatchLineUpService : IMatchLineUpService
         }
 
         // V4: El jugador no puede estar registrado dos veces en la misma alineación
-        if (await _matchLineUpRepository.PlayerExistsInLineUpAsync(matchId, playerId))
+        if (await _matchLineUpRepository.ExistsByMatchAndPlayerAsync(matchId, playerId))
         {
             _logger.LogWarning("Player {PlayerId} already registered in match {MatchId} line up", playerId, matchId);
             throw new InvalidOperationException("El jugador ya esta registrado en la alineación de este partido");

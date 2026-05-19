@@ -11,7 +11,7 @@ public class MatchLineUpRepository : GenericRepository<MatchLineUp>, IMatchLineU
     {
     }
 
-    public async Task<bool> PlayerExistsInLineUpAsync(int matchId, int playerId)
+    public async Task<bool> ExistsByMatchAndPlayerAsync(int matchId, int playerId)
     {
         return await _dbSet.AsNoTracking()
             .AnyAsync(ml => ml.MatchId == matchId && ml.PlayerId == playerId);
