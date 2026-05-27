@@ -1,5 +1,5 @@
 import { Component, input, output } from '@angular/core';
-import { MatButtonModule, MatIconModule } from '../../shared/material.imports';
+import { MatButtonModule, MatIconModule } from './../../shared/material.imports';
  
 @Component({
   selector: 'app-page-header',

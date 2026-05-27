@@ -6,7 +6,7 @@ import {
   MatToolbarModule, MatSidenavModule, MatListModule,
   MatIconModule, MatButtonModule, MatMenuModule,
   MatBadgeModule
-} from '../shared/material.imports';
+} from './../shared/material.imports';
 import { AuthService } from '../core/services/auth.service';
  
 @Component({

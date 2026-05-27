@@ -4,7 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {
   MatDialogModule, MatFormFieldModule, MatInputModule,
   MatButtonModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule
-} from '../../shared/material.imports';
+} from './../../shared/material.imports';
 import { Player, PlayerRequest, PlayerPosition } from '../../core/models/player.model';
 import { Team } from '../../core/models/team.model';
  

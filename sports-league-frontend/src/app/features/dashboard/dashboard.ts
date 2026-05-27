@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import {
   MatCardModule, MatButtonModule, MatIconModule, MatChipsModule,
   MatProgressSpinnerModule, MatListModule
-} from '../../shared/material.imports';
+} from './../../shared/material.imports';
 import { TournamentService } from '../../core/services/tournament.service';
 import { MatchService } from '../../core/services/match.service';
 import { StandingsService } from '../../core/services/standings.service';

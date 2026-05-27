@@ -4,7 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import {
   MatCardModule, MatFormFieldModule, MatInputModule,
   MatButtonModule, MatIconModule, MatProgressSpinnerModule
-} from '../../shared/material.imports';
+} from './../../shared/material.imports';
 import { AuthService } from '../../core/services/auth.service';
 import { NotificationService } from '../../core/services/notification.service';
  

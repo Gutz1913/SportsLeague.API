@@ -5,7 +5,7 @@ import {
   MatTableModule, MatPaginatorModule, MatButtonModule, MatIconModule,
   MatFormFieldModule, MatInputModule, MatSelectModule, MatTooltipModule,
   MatProgressSpinnerModule, MatChipsModule
-} from '../../shared/material.imports';
+} from './../../shared/material.imports';
 import { FormsModule } from '@angular/forms';
 import { PlayerService } from '../../core/services/player.service';
 import { TeamService } from '../../core/services/team.service';

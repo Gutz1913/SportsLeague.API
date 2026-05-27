@@ -7,7 +7,7 @@ import {
   MatCardModule, MatButtonModule, MatIconModule, MatChipsModule,
   MatProgressSpinnerModule, MatSelectModule, MatFormFieldModule,
   MatListModule, MatTooltipModule, MatTabsModule
-} from '../../shared/material.imports';
+} from './../../shared/material.imports';
 import { FormsModule } from '@angular/forms';
 import { TournamentService } from '../../core/services/tournament.service';
 import { TeamService } from '../../core/services/team.service';

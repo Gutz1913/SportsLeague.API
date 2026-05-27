@@ -6,7 +6,7 @@ import {
   MatTableModule, MatButtonModule, MatIconModule,
   MatChipsModule, MatTooltipModule, MatProgressSpinnerModule,
   MatSelectModule, MatFormFieldModule
-} from '../../shared/material.imports';
+} from './../../shared/material.imports';
 import { FormsModule } from '@angular/forms';
 import { MatchService } from '../../core/services/match.service';
 import { TournamentService } from '../../core/services/tournament.service';

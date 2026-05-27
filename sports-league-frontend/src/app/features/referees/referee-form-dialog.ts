@@ -4,7 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {
   MatDialogModule, MatFormFieldModule, MatInputModule,
   MatButtonModule
-} from '../../shared/material.imports';
+} from './../../shared/material.imports';
 import { Referee, RefereeRequest } from '../../core/models/referee.model';
  
 export interface RefereeFormData {

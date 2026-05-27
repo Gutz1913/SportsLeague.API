@@ -5,7 +5,7 @@ import { DatePipe } from '@angular/common';
 import {
   MatCardModule, MatButtonModule, MatIconModule, MatChipsModule,
   MatProgressSpinnerModule, MatTooltipModule, MatBadgeModule
-} from '../../shared/material.imports';
+} from './../../shared/material.imports';
 import { TournamentService } from '../../core/services/tournament.service';
 import { AuthService } from '../../core/services/auth.service';
 import { NotificationService } from '../../core/services/notification.service';

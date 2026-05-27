@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { MatDialogModule, MatButtonModule, MatIconModule } from '../../shared/material.imports';
+import { MatDialogModule, MatButtonModule, MatIconModule } from './../../shared/material.imports';
  
 export interface ConfirmDialogData {
   title: string;

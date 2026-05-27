@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import {
   MatTableModule, MatButtonModule, MatIconModule,
   MatTooltipModule, MatProgressSpinnerModule
-} from '../../shared/material.imports';
+} from './../../shared/material.imports';
 import { RefereeService } from '../../core/services/referee.service';
 import { AuthService } from '../../core/services/auth.service';
 import { NotificationService } from '../../core/services/notification.service';

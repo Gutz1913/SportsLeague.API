@@ -7,7 +7,7 @@ import {
   MatCardModule, MatButtonModule, MatIconModule, MatChipsModule,
   MatProgressSpinnerModule, MatSelectModule, MatFormFieldModule,
   MatInputModule, MatListModule, MatTooltipModule, MatTabsModule
-} from '../../shared/material.imports';
+} from './../../shared/material.imports';
 import { MatchService } from '../../core/services/match.service';
 import { MatchEventService } from '../../core/services/match-event.service';
 import { PlayerService } from '../../core/services/player.service';

@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import {
   MatTabsModule, MatTableModule, MatSelectModule, MatFormFieldModule,
   MatIconModule, MatProgressSpinnerModule, MatChipsModule, MatCardModule
-} from '../../shared/material.imports';
+} from './../../shared/material.imports';
 import { StandingsService } from '../../core/services/standings.service';
 import { TournamentService } from '../../core/services/tournament.service';
 import { Standing, TopScorer, CardStats } from '../../core/models/standings.model';

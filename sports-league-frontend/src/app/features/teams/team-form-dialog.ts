@@ -4,7 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {
   MatDialogModule, MatFormFieldModule, MatInputModule,
   MatButtonModule, MatDatepickerModule, MatNativeDateModule
-} from '../../shared/material.imports';
+} from './../../shared/material.imports';
 import { Team, TeamRequest } from '../../core/models/team.model';
  
 export interface TeamFormData {
