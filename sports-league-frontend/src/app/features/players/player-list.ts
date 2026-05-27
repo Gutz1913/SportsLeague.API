@@ -9,7 +9,7 @@ import {
 import { FormsModule } from '@angular/forms';
 import { PlayerService } from '../../core/services/player.service';
 import { TeamService } from '../../core/services/team.service';
-//import { AuthService } from '../../core/services/auth.service';
+import { AuthService } from '../../core/services/auth.service';
 import { NotificationService } from '../../core/services/notification.service';
 import { Player, PlayerPosition } from '../../core/models/player.model';
 import { Team } from '../../core/models/team.model';
@@ -123,7 +123,7 @@ export class PlayerListComponent implements OnInit {
   private teamService = inject(TeamService);
   private dialog = inject(MatDialog);
   private notification = inject(NotificationService);
-  //authService = inject(AuthService);
+  authService = inject(AuthService);
  
   players: Player[] = [];
   teams: Team[] = [];

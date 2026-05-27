@@ -5,7 +5,7 @@ import {
   MatTooltipModule, MatProgressSpinnerModule
 } from '../../shared/material.imports';
 import { TeamService } from '../../core/services/team.service';
-//import { AuthService } from '../../core/services/auth.service';
+import { AuthService } from '../../core/services/auth.service';
 import { NotificationService } from '../../core/services/notification.service';
 import { Team } from '../../core/models/team.model';
 import { TeamFormDialogComponent } from './team-form-dialog';
@@ -88,7 +88,7 @@ export class TeamListComponent implements OnInit {
   private teamService = inject(TeamService);
   private dialog = inject(MatDialog);
   private notification = inject(NotificationService);
-  //authService = inject(AuthService);
+  authService = inject(AuthService);
  
   teams: Team[] = [];
   loading = false;

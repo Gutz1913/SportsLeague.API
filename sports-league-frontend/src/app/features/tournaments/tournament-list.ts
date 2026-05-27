@@ -7,7 +7,7 @@ import {
   MatProgressSpinnerModule, MatTooltipModule, MatBadgeModule
 } from '../../shared/material.imports';
 import { TournamentService } from '../../core/services/tournament.service';
-//import { AuthService } from '../../core/services/auth.service';
+import { AuthService } from '../../core/services/auth.service';
 import { NotificationService } from '../../core/services/notification.service';
 import { Tournament, TournamentStatus } from '../../core/models/tournament.model';
 import { TournamentFormDialogComponent } from './tournament-form-dialog';
@@ -94,7 +94,7 @@ export class TournamentListComponent implements OnInit {
   private router = inject(Router);
   private dialog = inject(MatDialog);
   private notification = inject(NotificationService);
-  //authService = inject(AuthService);
+  authService = inject(AuthService);
  
   tournaments: Tournament[] = [];
   loading = false;

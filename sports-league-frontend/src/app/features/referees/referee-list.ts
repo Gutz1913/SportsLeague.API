@@ -5,7 +5,7 @@ import {
   MatTooltipModule, MatProgressSpinnerModule
 } from '../../shared/material.imports';
 import { RefereeService } from '../../core/services/referee.service';
-//import { AuthService } from '../../core/services/auth.service';
+import { AuthService } from '../../core/services/auth.service';
 import { NotificationService } from '../../core/services/notification.service';
 import { Referee } from '../../core/models/referee.model';
 import { RefereeFormDialogComponent } from './referee-form-dialog';
@@ -85,7 +85,7 @@ export class RefereeListComponent implements OnInit {
   private refereeService = inject(RefereeService);
   private dialog = inject(MatDialog);
   private notification = inject(NotificationService);
-  //authService = inject(AuthService);
+  authService = inject(AuthService);
  
   referees: Referee[] = [];
   loading = false;
