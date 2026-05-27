@@ -3,6 +3,7 @@ import { authGuard } from './core/guards/auth.guard';
 import { MainLayoutComponent } from './layout/main-layout.component';
  
 export const routes: Routes = [
+  // --- Rutas públicas (sin layout) ---
   {
     path: 'login',
     loadComponent: () =>
@@ -13,16 +14,29 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/auth/register.component').then(m => m.RegisterComponent)
   },
+ 
+  // --- Rutas protegidas (con layout) ---
   {
     path: '',
     component: MainLayoutComponent,
     canActivate: [authGuard],
     children: [
-      { path: '', redirectTo: 'teams', pathMatch: 'full' },
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+      },
+      {
+        path: 'dashboard',
+        loadComponent: () =>
+          import('./features/dashboard/dashboard')
+            .then(m => m.DashboardComponent)
+      },
       {
         path: 'teams',
         loadComponent: () =>
-          import('./features/teams/team-list').then(m => m.TeamListComponent)
+          import('./features/teams/team-list')
+            .then(m => m.TeamListComponent)
       },
       {
         path: 'players',
@@ -36,19 +50,38 @@ export const routes: Routes = [
           import('./features/referees/referee-list')
             .then(m => m.RefereeListComponent)
       },
-      { path: 'tournaments', 
+      {
+        path: 'tournaments',
         loadComponent: () =>
           import('./features/tournaments/tournament-list')
             .then(m => m.TournamentListComponent)
       },
-      { path: 'tournaments/:id', 
+      {
+        path: 'tournaments/:id',
         loadComponent: () =>
           import('./features/tournaments/tournament-detail')
             .then(m => m.TournamentDetailComponent)
       },
-      // { path: 'matches', loadComponent: ... },
-      // { path: 'standings', loadComponent: ... },
+      {
+        path: 'matches',
+        loadComponent: () =>
+          import('./features/matches/match-list')
+            .then(m => m.MatchListComponent)
+      },
+      {
+        path: 'matches/:id',
+        loadComponent: () =>
+          import('./features/matches/match-detail')
+            .then(m => m.MatchDetailComponent)
+      },
+      {
+        path: 'standings',
+        loadComponent: () =>
+          import('./features/standings/standings-page')
+            .then(m => m.StandingsPageComponent)
+      }
     ]
   },
+ 
   { path: '**', redirectTo: '' }
 ];
