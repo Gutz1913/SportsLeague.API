@@ -36,8 +36,16 @@ export const routes: Routes = [
           import('./features/referees/referee-list')
             .then(m => m.RefereeListComponent)
       },
-      // Fases posteriores:
-      // { path: 'tournaments', loadComponent: ... },
+      { path: 'tournaments', 
+        loadComponent: () =>
+          import('./features/tournaments/tournament-list')
+            .then(m => m.TournamentListComponent)
+      },
+      { path: 'tournaments/:id', 
+        loadComponent: () =>
+          import('./features/tournaments/tournament-detail')
+            .then(m => m.TournamentDetailComponent)
+      },
       // { path: 'matches', loadComponent: ... },
       // { path: 'standings', loadComponent: ... },
     ]
