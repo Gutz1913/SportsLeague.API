@@ -1,18 +1,18 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './core/guards/auth.guard';
-import { MainLayoutComponent } from './layout/main-layout.component';
+import { MainLayoutComponent } from './layout/main-layout';
  
 export const routes: Routes = [
   // --- Rutas públicas (sin layout) ---
   {
     path: 'login',
     loadComponent: () =>
-      import('./features/auth/login.component').then(m => m.LoginComponent)
+      import('./features/auth/login').then(m => m.LoginComponent)
   },
   {
     path: 'register',
     loadComponent: () =>
-      import('./features/auth/register.component').then(m => m.RegisterComponent)
+      import('./features/auth/register').then(m => m.RegisterComponent)
   },
  
   // --- Rutas protegidas (con layout) ---
