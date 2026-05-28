@@ -27,6 +27,11 @@ import { AuthService } from '../core/services/auth.service';
         </div>
  
         <mat-nav-list>
+          <a mat-list-item routerLink="/dashboard" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            <mat-icon matListItemIcon>dashboard</mat-icon>
+            <span>Dashboard</span>
+          </a>
           <a mat-list-item routerLink="/" routerLinkActive="active"
              [routerLinkActiveOptions]="{ exact: true }">
             <mat-icon matListItemIcon>dashboard</mat-icon>
